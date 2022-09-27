@@ -1,17 +1,19 @@
+// Internal imports
 import ExpensesDate from './ExpensesDate';
+import Card from './Card';
+// CSS Files
 import './ExpenseItem.css';
 
-function ExpenseItem({ title, amount, date }) {
+function ExpenseItem(props) {
   return (
-    <div className='expense-item'>
-      <div>
-        <ExpensesDate date={date} />
-      </div>
+    <Card className='expense-item'>
+      <ExpensesDate date={props.date} />
+
       <div className='expense-item__description'>
-        <h2>{title}</h2>
+        <h2>{props.title}</h2>
+        <div className='expense-item__price'>${props.amount}</div>
       </div>
-      <div className='expense-item__price'>${amount}</div>
-    </div>
+    </Card>
   );
 }
 
